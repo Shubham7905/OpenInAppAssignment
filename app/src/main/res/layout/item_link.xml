@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="link"
+            type="com.openin.openinapp.model.Link" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/titleTxt"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:fontFamily="@font/figtree"
+                    android:text="@{link.title}"
+                    android:textColor="@color/black"
+                    android:layout_toEndOf="@id/imgCard"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/dateTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#999CA0"
+                    android:fontFamily="@font/figtree"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/imgCard"
+                    android:text="@{link.formattedDate}"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/totalClicksTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/figtree"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="@{String.valueOf(link.total_clicks)}"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#999CA0"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/figtree"
+                    android:layout_marginEnd="6dp"
+                    android:layout_alignParentEnd="true"
+                    android:text="Clicks"
+                    android:textSize="12sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/imgCard"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    app:cardCornerRadius="8dp"
+                    android:elevation="6dp">
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@{@drawable/ic_launcher_foreground}" />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/dashed_bg">
+
+                <TextView
+                    android:layout_width="200sp"
+                    android:layout_height="wrap_content"
+                    android:text="@{link.original_image}"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/figtree"
+                    android:textColor="#0E6FFF"
+                    android:singleLine="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/copy_icon"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
